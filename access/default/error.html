@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:with="http://www.thymeleaf.org/extras/with"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout-engine}" with:page="${errorTitlePrefix}" with:pageheader="#{|${errorMessagePrefix}.headline|}">
+<head>
+  <title>ERROR</title>
+</head>
+<body id="page-error">
+
+<th:block layout:fragment="errorMessage"/>
+
+<th:block layout:fragment="page-heading">
+  <h1 th:text="#{engine.error.title}">Something went wrong!</h1>
+</th:block>
+
+<th:block layout:fragment="content">
+  <div class="row">
+    <div class="col-12">
+      <p> Hola ERS!</p>
+      <p th:if="${exceptionTitle}" th:text="#{${exceptionTitle}}"></p>
+      <p th:if="${exceptionDescription}" th:text="#{${exceptionDescription}}"></p>
+      <p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+      <p th:if="${exceptionReference}" th:utext="#{engine.error.description.reference(${exceptionReference})}">_If you are stuck
+        please contact support with the following reference: abcdef.</p>
+
+      <p th:unless="${exceptionReference}" th:utext="#{engine.error.description}">_Please try again</p>
+    </div>
+  </div>
+</th:block>
+</body>
+</html>
