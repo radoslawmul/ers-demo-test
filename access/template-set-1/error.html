@@ -16,9 +16,9 @@
 </th:block>
 
 <th:block layout:fragment="content">
-  <div class="row">
+  <div class="row" style="background-color:green;">
     <div class="col-12">
-      <p> ERS - Thats template from template-set-1! </p>
+      <p> ERS - Thats template from other template set 1 (other branch) ! </p>
       <p th:if="${exceptionTitle}" th:text="#{${exceptionTitle}}"></p>
       <p th:if="${exceptionDescription}" th:text="#{${exceptionDescription}}"></p>
       <p th:if="${errorMessage}" th:text="${errorMessage}"></p>
